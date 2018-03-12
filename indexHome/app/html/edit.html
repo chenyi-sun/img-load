@@ -1,0 +1,54 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="edit">
+        <div class="in-box">
+            <div class="left">标题</div>
+            <textarea v-model="title"></textarea>
+        </div>
+        <div class="in-box">
+            <div class="left">段落1</div>
+            <textarea class="textbox2" v-model="content.content1"></textarea>
+        </div>
+         <div class="in-box">
+            <div class="left">图片1地址</div>
+            <textarea class="textbox1" v-model="content.img1"></textarea>
+        </div>
+        <div class="in-box">
+            <div class="left">段落2</div>
+            <textarea class="textbox2" v-model="content.content2"></textarea>
+        </div>
+        <div class="in-box">
+            <div class="left">图片2地址</div>
+            <textarea class="textbox1" v-model="content.img2"></textarea>
+        </div>
+        <div class="in-box">
+            <div class="left">段落3</div>
+            <textarea class="textbox2" v-model="content.content3"></textarea>
+        </div>
+        <div class="in-box">
+            <div class="left">图片3地址</div>
+            <textarea class="textbox1" v-model="content.img3"></textarea>
+        </div>
+        <div class="in-box">
+            <div class="left">大分类</div>
+            <select v-model="bigselect" @change="changebingselect(bigselect)">
+                <option v-for="item in bigSelects">{{item.bigtype}}</option>
+            </select>
+        </div>
+        <div class="in-box">
+            <div class="left" >小分类</div>
+            <select v-model="smallselect">
+                <option v-for="item in smalltypes" :value="item.value"  v-if="bigselect==item.bigtype" >{{item.type}}</option>
+            </select>
+        </div>
+        <div class="submit" v-on:click="submit">提交</div>
+    </div>
+</body>
+<script src="./../script/edit.js"></script>
+</html>
